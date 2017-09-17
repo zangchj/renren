@@ -323,6 +323,7 @@
                    data:data,
                    dataType:'json',
                    success:function (res) {
+                       console.log(res);
                        if(res.data==0){
                             localStorage.setItem("token",res.token);
                             parent.location.href="/index";

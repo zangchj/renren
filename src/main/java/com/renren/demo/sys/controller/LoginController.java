@@ -1,7 +1,6 @@
 package com.renren.demo.sys.controller;
 
 import com.renren.demo.common.utils.R;
-import com.renren.demo.controller.AbstractController;
 import com.renren.demo.sys.entity.SysUser;
 import com.renren.demo.sys.service.SysUserService;
 import com.renren.demo.sys.service.SysUserTokenService;
