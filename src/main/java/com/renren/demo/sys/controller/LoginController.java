@@ -4,6 +4,7 @@ import com.renren.demo.common.utils.R;
 import com.renren.demo.controller.AbstractController;
 import com.renren.demo.sys.entity.SysUser;
 import com.renren.demo.sys.service.SysUserService;
+import com.renren.demo.sys.service.SysUserTokenService;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,9 @@ public class LoginController extends AbstractController {
     @Autowired
     private SysUserService sysUserService;
 
+    @Autowired
+    private SysUserTokenService sysUserTokenService;
+
     @RequestMapping("/login")
     public Map<String,Object> login(String username, String password){
         //用户信息
@@ -34,8 +38,7 @@ public class LoginController extends AbstractController {
         if(user.getStatus()==0){
             return R.error("账号被锁定,请联系管理员");
         }
-
-
-        return null;
+        R r=sysUserTokenService.createToken(user.getUserId());
+        return r;
     }
 }
