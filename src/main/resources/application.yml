@@ -1,0 +1,25 @@
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    check-template-location: true
+    suffix: .ftl
+    request-context-attribute: request
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: root
+  mvc:
+    static-path-pattern: classpath:/static/**
+    view:
+      prefix: classpath:/web/
+      suffix: .html
+  thymeleaf:
+    prefix: classpath:/web/
+    suffix: .html
+server:
+  port: 8016
+
+#MyBatis配置
+mybatis:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
